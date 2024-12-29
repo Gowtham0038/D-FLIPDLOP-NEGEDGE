@@ -29,16 +29,43 @@ Next state of D flip-flop is always equal to data input, D for every positive tr
 **Procedure**
 
 /* write all the steps invloved */
+1.Define Module: Define a Verilog module for the D flip-flop with inputs (D, CLK) and outputs (Q, Q_bar).
 
+2.Declare Inputs and Outputs: Declare input and output ports for the module.
+
+3.Implement Flip-Flop Logic: Write Verilog code to implement the D flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
+
+4.Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the D flip-flop under different input conditions.
+
+5.Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (D, CLK) to cover all possible input states.
+
+6.Verify Output Behavior: Verify that the output behavior of the D flip-flop matches the expected behavior defined by its functional table.
+
+7.Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
 **PROGRAM**
-
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+~~~
+module DFLIPFLOPNEGEDGE(D,Clock,reset,Q);
+input D,reset,Clock;
+output reg Q;
+always @ (negedge Clock)
+if(!reset)
+Q <= 0;
+else
+Q <= D;
+endmodule
+~~~
+/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+Developed by:Gowtham C
+RegisterNumber: 24002349
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
+![399073582-517b077e-9d1c-47dc-9028-d1e60144629d](https://github.com/user-attachments/assets/6012c404-5932-4d62-bc4a-99ac2657d530)
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![399073591-0cfc1b6b-7a71-428f-91d4-c48802a0c891](https://github.com/user-attachments/assets/08103e10-b1cd-433f-b866-37d7549bb63b)
 
 
 **RESULTS**
+Thus the program to implement a D flipflop using verilog and validating their functionality using their functional tables.
